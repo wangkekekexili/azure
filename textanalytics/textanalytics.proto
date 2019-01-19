@@ -5,30 +5,57 @@ package textanalytics;
 message BatchDetectLanguageRequest {
     message Document {
         // Unique, non-empty document identifier.
-        string id = 1 [json_name="id"];
-        string text = 2 [json_name="text"];
+        string id = 1 [json_name = "id"];
+        string text = 2 [json_name = "text"];
     }
-    repeated Document documents = 1 [json_name="documents"];
+    repeated Document documents = 1 [json_name = "documents"];
 }
 
 message DetectedLanguage {
     // "Long name of a detected language (e.g. English, French).
-    string name = 1 [json_name="name"];
+    string name = 1 [json_name = "name"];
 
     // A two letter representation of the detected language according to
     // the ISO 639-1 standard (e.g. en, fr).
-    string iso6391name = 2 [json_name="iso6391Name"];
+    string iso6391name = 2 [json_name = "iso6391Name"];
 
     // A confidence score between 0 and 1.
     // Scores close to 1 indicate 100% certainty that the identified language is true.
-    double score = 3 [json_name="score"];
+    double score = 3 [json_name = "score"];
 }
 
 message BatchDetectLanguageResponse {
     message Document {
         // Unique document identifier.
-        string id = 1 [json_name="id"];
-        repeated DetectedLanguage detect_languages = 2 [json_name="detectedLanguages"];
+        string id = 1 [json_name = "id"];
+        repeated DetectedLanguage detect_languages = 2 [json_name = "detectedLanguages"];
     }
-    repeated Document documents = 1 [json_name="documents"];
+    repeated Document documents = 1 [json_name = "documents"];
+}
+
+message BatchKeyPhrasesRequest {
+    message Document {
+        // This is the 2 letter ISO 639-1 representation of a language.
+        // For example, use "en" for English; "es" for Spanish etc.
+        string language = 1 [json_name = "language"];
+
+        // Unique, non-empty document identifier.
+        string id = 2 [json_name = "id"];
+
+        string text = 3 [json_name = "text"];
+    }
+    repeated Document documents = 1 [json_name = "documents"];
+}
+
+message BatchKeyPhrasesResponse {
+    message Document {
+        // Unique document identifier.
+        string id = 1 [json_name = "id"];
+
+        // A list of representative words or phrases.
+        // The number of key phrases returned is proportional to
+        // the number of words in the input document.
+        repeated string key_phrases = 2 [json_name = "keyPhrases"];
+    }
+    repeated Document documents = 1 [json_name = "documents"];
 }

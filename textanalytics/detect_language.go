@@ -9,7 +9,7 @@ import (
 
 func (c *Client) BatchDetectLanguage(ctx context.Context, req *BatchDetectLanguageRequest) (*BatchDetectLanguageResponse, error) {
 	resp := &BatchDetectLanguageResponse{}
-	err := c.do(ctx, req, resp)
+	err := c.do(ctx, detectLanguagePath, req, resp)
 	return resp, err
 }
 

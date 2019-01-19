@@ -254,33 +254,230 @@ func (m *BatchDetectLanguageResponse_Document) GetDetectLanguages() []*DetectedL
 	return nil
 }
 
+type BatchKeyPhrasesRequest struct {
+	Documents            []*BatchKeyPhrasesRequest_Document `protobuf:"bytes,1,rep,name=documents,proto3" json:"documents,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                           `json:"-"`
+	XXX_unrecognized     []byte                             `json:"-"`
+	XXX_sizecache        int32                              `json:"-"`
+}
+
+func (m *BatchKeyPhrasesRequest) Reset()         { *m = BatchKeyPhrasesRequest{} }
+func (m *BatchKeyPhrasesRequest) String() string { return proto.CompactTextString(m) }
+func (*BatchKeyPhrasesRequest) ProtoMessage()    {}
+func (*BatchKeyPhrasesRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_95bbfc17710757c6, []int{3}
+}
+
+func (m *BatchKeyPhrasesRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_BatchKeyPhrasesRequest.Unmarshal(m, b)
+}
+func (m *BatchKeyPhrasesRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_BatchKeyPhrasesRequest.Marshal(b, m, deterministic)
+}
+func (m *BatchKeyPhrasesRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_BatchKeyPhrasesRequest.Merge(m, src)
+}
+func (m *BatchKeyPhrasesRequest) XXX_Size() int {
+	return xxx_messageInfo_BatchKeyPhrasesRequest.Size(m)
+}
+func (m *BatchKeyPhrasesRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_BatchKeyPhrasesRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_BatchKeyPhrasesRequest proto.InternalMessageInfo
+
+func (m *BatchKeyPhrasesRequest) GetDocuments() []*BatchKeyPhrasesRequest_Document {
+	if m != nil {
+		return m.Documents
+	}
+	return nil
+}
+
+type BatchKeyPhrasesRequest_Document struct {
+	// This is the 2 letter ISO 639-1 representation of a language.
+	// For example, use "en" for English; "es" for Spanish etc.
+	Language string `protobuf:"bytes,1,opt,name=language,proto3" json:"language,omitempty"`
+	// Unique, non-empty document identifier.
+	Id                   string   `protobuf:"bytes,2,opt,name=id,proto3" json:"id,omitempty"`
+	Text                 string   `protobuf:"bytes,3,opt,name=text,proto3" json:"text,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *BatchKeyPhrasesRequest_Document) Reset()         { *m = BatchKeyPhrasesRequest_Document{} }
+func (m *BatchKeyPhrasesRequest_Document) String() string { return proto.CompactTextString(m) }
+func (*BatchKeyPhrasesRequest_Document) ProtoMessage()    {}
+func (*BatchKeyPhrasesRequest_Document) Descriptor() ([]byte, []int) {
+	return fileDescriptor_95bbfc17710757c6, []int{3, 0}
+}
+
+func (m *BatchKeyPhrasesRequest_Document) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_BatchKeyPhrasesRequest_Document.Unmarshal(m, b)
+}
+func (m *BatchKeyPhrasesRequest_Document) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_BatchKeyPhrasesRequest_Document.Marshal(b, m, deterministic)
+}
+func (m *BatchKeyPhrasesRequest_Document) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_BatchKeyPhrasesRequest_Document.Merge(m, src)
+}
+func (m *BatchKeyPhrasesRequest_Document) XXX_Size() int {
+	return xxx_messageInfo_BatchKeyPhrasesRequest_Document.Size(m)
+}
+func (m *BatchKeyPhrasesRequest_Document) XXX_DiscardUnknown() {
+	xxx_messageInfo_BatchKeyPhrasesRequest_Document.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_BatchKeyPhrasesRequest_Document proto.InternalMessageInfo
+
+func (m *BatchKeyPhrasesRequest_Document) GetLanguage() string {
+	if m != nil {
+		return m.Language
+	}
+	return ""
+}
+
+func (m *BatchKeyPhrasesRequest_Document) GetId() string {
+	if m != nil {
+		return m.Id
+	}
+	return ""
+}
+
+func (m *BatchKeyPhrasesRequest_Document) GetText() string {
+	if m != nil {
+		return m.Text
+	}
+	return ""
+}
+
+type BatchKeyPhrasesResponse struct {
+	Documents            []*BatchKeyPhrasesResponse_Document `protobuf:"bytes,1,rep,name=documents,proto3" json:"documents,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                            `json:"-"`
+	XXX_unrecognized     []byte                              `json:"-"`
+	XXX_sizecache        int32                               `json:"-"`
+}
+
+func (m *BatchKeyPhrasesResponse) Reset()         { *m = BatchKeyPhrasesResponse{} }
+func (m *BatchKeyPhrasesResponse) String() string { return proto.CompactTextString(m) }
+func (*BatchKeyPhrasesResponse) ProtoMessage()    {}
+func (*BatchKeyPhrasesResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_95bbfc17710757c6, []int{4}
+}
+
+func (m *BatchKeyPhrasesResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_BatchKeyPhrasesResponse.Unmarshal(m, b)
+}
+func (m *BatchKeyPhrasesResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_BatchKeyPhrasesResponse.Marshal(b, m, deterministic)
+}
+func (m *BatchKeyPhrasesResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_BatchKeyPhrasesResponse.Merge(m, src)
+}
+func (m *BatchKeyPhrasesResponse) XXX_Size() int {
+	return xxx_messageInfo_BatchKeyPhrasesResponse.Size(m)
+}
+func (m *BatchKeyPhrasesResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_BatchKeyPhrasesResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_BatchKeyPhrasesResponse proto.InternalMessageInfo
+
+func (m *BatchKeyPhrasesResponse) GetDocuments() []*BatchKeyPhrasesResponse_Document {
+	if m != nil {
+		return m.Documents
+	}
+	return nil
+}
+
+type BatchKeyPhrasesResponse_Document struct {
+	// Unique document identifier.
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	// A list of representative words or phrases.
+	// The number of key phrases returned is proportional to
+	// the number of words in the input document.
+	KeyPhrases           []string `protobuf:"bytes,2,rep,name=key_phrases,json=keyPhrases,proto3" json:"key_phrases,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *BatchKeyPhrasesResponse_Document) Reset()         { *m = BatchKeyPhrasesResponse_Document{} }
+func (m *BatchKeyPhrasesResponse_Document) String() string { return proto.CompactTextString(m) }
+func (*BatchKeyPhrasesResponse_Document) ProtoMessage()    {}
+func (*BatchKeyPhrasesResponse_Document) Descriptor() ([]byte, []int) {
+	return fileDescriptor_95bbfc17710757c6, []int{4, 0}
+}
+
+func (m *BatchKeyPhrasesResponse_Document) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_BatchKeyPhrasesResponse_Document.Unmarshal(m, b)
+}
+func (m *BatchKeyPhrasesResponse_Document) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_BatchKeyPhrasesResponse_Document.Marshal(b, m, deterministic)
+}
+func (m *BatchKeyPhrasesResponse_Document) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_BatchKeyPhrasesResponse_Document.Merge(m, src)
+}
+func (m *BatchKeyPhrasesResponse_Document) XXX_Size() int {
+	return xxx_messageInfo_BatchKeyPhrasesResponse_Document.Size(m)
+}
+func (m *BatchKeyPhrasesResponse_Document) XXX_DiscardUnknown() {
+	xxx_messageInfo_BatchKeyPhrasesResponse_Document.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_BatchKeyPhrasesResponse_Document proto.InternalMessageInfo
+
+func (m *BatchKeyPhrasesResponse_Document) GetId() string {
+	if m != nil {
+		return m.Id
+	}
+	return ""
+}
+
+func (m *BatchKeyPhrasesResponse_Document) GetKeyPhrases() []string {
+	if m != nil {
+		return m.KeyPhrases
+	}
+	return nil
+}
+
 func init() {
 	proto.RegisterType((*BatchDetectLanguageRequest)(nil), "textanalytics.BatchDetectLanguageRequest")
 	proto.RegisterType((*BatchDetectLanguageRequest_Document)(nil), "textanalytics.BatchDetectLanguageRequest.Document")
 	proto.RegisterType((*DetectedLanguage)(nil), "textanalytics.DetectedLanguage")
 	proto.RegisterType((*BatchDetectLanguageResponse)(nil), "textanalytics.BatchDetectLanguageResponse")
 	proto.RegisterType((*BatchDetectLanguageResponse_Document)(nil), "textanalytics.BatchDetectLanguageResponse.Document")
+	proto.RegisterType((*BatchKeyPhrasesRequest)(nil), "textanalytics.BatchKeyPhrasesRequest")
+	proto.RegisterType((*BatchKeyPhrasesRequest_Document)(nil), "textanalytics.BatchKeyPhrasesRequest.Document")
+	proto.RegisterType((*BatchKeyPhrasesResponse)(nil), "textanalytics.BatchKeyPhrasesResponse")
+	proto.RegisterType((*BatchKeyPhrasesResponse_Document)(nil), "textanalytics.BatchKeyPhrasesResponse.Document")
 }
 
 func init() { proto.RegisterFile("textanalytics.proto", fileDescriptor_95bbfc17710757c6) }
 
 var fileDescriptor_95bbfc17710757c6 = []byte{
-	// 265 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x91, 0xd1, 0x4a, 0xc3, 0x30,
-	0x14, 0x86, 0x49, 0xa7, 0xe2, 0xce, 0x50, 0x66, 0xf4, 0xa2, 0xcc, 0x0b, 0x4b, 0xaf, 0x7a, 0x55,
-	0x70, 0x05, 0xc1, 0x5b, 0xd9, 0xe5, 0x10, 0xcd, 0x03, 0x28, 0x31, 0x39, 0x6c, 0x85, 0x2d, 0x99,
-	0x3b, 0xa7, 0xa0, 0x2f, 0xe3, 0x83, 0xf9, 0x34, 0xd2, 0xb4, 0x45, 0x56, 0xa7, 0x78, 0x77, 0xf2,
-	0xe7, 0xfc, 0xdf, 0x4f, 0xfe, 0xc0, 0x39, 0xe3, 0x1b, 0x6b, 0xa7, 0x57, 0xef, 0x5c, 0x1a, 0xca,
-	0x37, 0x5b, 0xcf, 0x5e, 0x9e, 0xec, 0x88, 0xe9, 0x87, 0x80, 0xc9, 0x9d, 0x66, 0xb3, 0x9c, 0x21,
-	0xa3, 0xe1, 0xb9, 0x76, 0x8b, 0x4a, 0x2f, 0x50, 0xe1, 0x6b, 0x85, 0xc4, 0xf2, 0x01, 0x86, 0xd6,
-	0x9b, 0x6a, 0x8d, 0x8e, 0x29, 0x16, 0xc9, 0x20, 0x1b, 0x4d, 0xa7, 0xf9, 0x2e, 0xf6, 0x77, 0x77,
-	0x3e, 0x6b, 0xad, 0xea, 0x1b, 0x32, 0xc9, 0xe1, 0xb8, 0x93, 0xe5, 0x29, 0x44, 0xa5, 0x8d, 0x45,
-	0x22, 0xb2, 0xa1, 0x8a, 0x4a, 0x2b, 0x25, 0x1c, 0xd4, 0xec, 0x38, 0x0a, 0x4a, 0x98, 0xd3, 0x27,
-	0x18, 0x37, 0x70, 0xb4, 0x1d, 0xbe, 0xde, 0x73, 0x7a, 0x8d, 0xad, 0x33, 0xcc, 0x32, 0x81, 0x51,
-	0x49, 0xfe, 0xa6, 0xb8, 0xbd, 0x0e, 0x57, 0x0d, 0xa2, 0x93, 0xee, 0xeb, 0x8d, 0x0b, 0x38, 0x24,
-	0xe3, 0xb7, 0x18, 0x0f, 0x12, 0x91, 0x09, 0xd5, 0x1c, 0xd2, 0x4f, 0x01, 0x97, 0x7b, 0x9f, 0x40,
-	0x1b, 0xef, 0x08, 0xe5, 0xe3, 0xcf, 0x06, 0x8a, 0xff, 0x34, 0xd0, 0xd8, 0xf7, 0x56, 0xb0, 0xfc,
-	0xa3, 0x82, 0x39, 0x8c, 0x6d, 0x20, 0x3d, 0xaf, 0x5a, 0x14, 0xc5, 0x51, 0x48, 0xbd, 0xea, 0xa5,
-	0xf6, 0x5b, 0x51, 0x67, 0xb6, 0xa7, 0xd0, 0xcb, 0x51, 0xf8, 0xf3, 0xe2, 0x2b, 0x00, 0x00, 0xff,
-	0xff, 0x1a, 0xe5, 0x48, 0x13, 0x0a, 0x02, 0x00, 0x00,
+	// 354 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x93, 0xd1, 0x4e, 0xfa, 0x30,
+	0x14, 0xc6, 0xd3, 0xf1, 0xff, 0x1b, 0x38, 0x44, 0x83, 0xd5, 0xe8, 0x82, 0x17, 0x2c, 0xbb, 0xe2,
+	0x6a, 0x46, 0x48, 0x4c, 0x8c, 0x77, 0x86, 0x2b, 0x45, 0x83, 0x7d, 0x00, 0x49, 0x5d, 0x4f, 0x60,
+	0x01, 0x56, 0xa4, 0x25, 0x91, 0x97, 0xf1, 0xce, 0x17, 0xf0, 0x71, 0x7c, 0x1a, 0x43, 0xd7, 0x21,
+	0xd0, 0x89, 0xde, 0xb5, 0x67, 0x3d, 0xbf, 0x73, 0xbe, 0xef, 0xcb, 0xe0, 0x48, 0xe3, 0xab, 0xe6,
+	0x29, 0x1f, 0x2f, 0x74, 0x12, 0xab, 0x68, 0x3a, 0x93, 0x5a, 0xd2, 0xfd, 0x8d, 0x62, 0xf8, 0x46,
+	0xa0, 0x7e, 0xc3, 0x75, 0x3c, 0xec, 0xa0, 0xc6, 0x58, 0x77, 0x79, 0x3a, 0x98, 0xf3, 0x01, 0x32,
+	0x7c, 0x99, 0xa3, 0xd2, 0xb4, 0x07, 0x15, 0x21, 0xe3, 0xf9, 0x04, 0x53, 0xad, 0x7c, 0x12, 0x94,
+	0x9a, 0xd5, 0x56, 0x2b, 0xda, 0xc4, 0xfe, 0xdc, 0x1d, 0x75, 0x6c, 0x2b, 0xfb, 0x86, 0xd4, 0x23,
+	0x28, 0xe7, 0x65, 0x7a, 0x00, 0x5e, 0x22, 0x7c, 0x12, 0x90, 0x66, 0x85, 0x79, 0x89, 0xa0, 0x14,
+	0xfe, 0x2d, 0xd9, 0xbe, 0x67, 0x2a, 0xe6, 0x1c, 0x3e, 0x41, 0x2d, 0x83, 0xa3, 0xc8, 0xf1, 0xcb,
+	0x77, 0x29, 0x9f, 0xa0, 0xed, 0x34, 0x67, 0x1a, 0x40, 0x35, 0x51, 0xf2, 0xb2, 0x7d, 0x75, 0x61,
+	0x3e, 0x65, 0x88, 0xbc, 0xf4, 0xb0, 0x7c, 0x71, 0x0c, 0xff, 0x55, 0x2c, 0x67, 0xe8, 0x97, 0x02,
+	0xd2, 0x24, 0x2c, 0xbb, 0x84, 0x9f, 0x04, 0xce, 0x0a, 0x25, 0xa8, 0xa9, 0x4c, 0x15, 0xd2, 0x47,
+	0xd7, 0x81, 0xf6, 0x5f, 0x1c, 0xc8, 0xda, 0x0b, 0x2d, 0x18, 0xee, 0xb0, 0xa0, 0x0b, 0x35, 0x61,
+	0x48, 0xfd, 0xb1, 0x45, 0x29, 0xdf, 0x33, 0x53, 0x1b, 0x5b, 0x53, 0xb7, 0x5d, 0x61, 0x87, 0x62,
+	0xab, 0xa2, 0xc2, 0x0f, 0x02, 0x27, 0x66, 0xbb, 0x3b, 0x5c, 0xf4, 0x86, 0x33, 0xae, 0x50, 0xe5,
+	0xc9, 0x76, 0x5d, 0x5d, 0x51, 0x91, 0x2e, 0xa7, 0xb3, 0x50, 0xd2, 0xed, 0x9a, 0xa4, 0x3a, 0x94,
+	0xf3, 0xdd, 0xad, 0xb0, 0xd5, 0xdd, 0xca, 0xf5, 0x9c, 0xc4, 0x4b, 0x6b, 0x89, 0xbf, 0x13, 0x38,
+	0x75, 0x46, 0xdb, 0x34, 0xee, 0xdd, 0xad, 0xcf, 0x7f, 0xdb, 0x7a, 0x47, 0x12, 0xd7, 0x3b, 0x92,
+	0x68, 0x40, 0x75, 0x84, 0x8b, 0xfe, 0x34, 0xc3, 0x98, 0x10, 0x2a, 0x0c, 0x46, 0x2b, 0xf0, 0xf3,
+	0x9e, 0xf9, 0xa1, 0xda, 0x5f, 0x01, 0x00, 0x00, 0xff, 0xff, 0x07, 0x59, 0xac, 0x38, 0x67, 0x03,
+	0x00, 0x00,
 }

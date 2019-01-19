@@ -31,8 +31,13 @@ func New(client *http.Client, endpoint, key string) *Client {
 	}
 }
 
-func (c *Client) do(ctx context.Context, req, resp proto.Message) error {
-	uri := c.endpoint + "/text/analytics/v2.0/languages"
+const (
+	detectLanguagePath = "/text/analytics/v2.0/languages"
+	keyPhrasesPath     = "/text/analytics/v2.0/keyPhrases"
+)
+
+func (c *Client) do(ctx context.Context, path string, req, resp proto.Message) error {
+	uri := c.endpoint + path
 	s, err := marshaler.MarshalToString(req)
 	if err != nil {
 		return fmt.Errorf("marshal request: %v", err)

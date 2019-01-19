@@ -60,6 +60,7 @@ func (m *BatchDetectLanguageRequest) GetDocuments() []*BatchDetectLanguageReques
 }
 
 type BatchDetectLanguageRequest_Document struct {
+	// Unique, non-empty document identifier.
 	Id                   string   `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	Text                 string   `protobuf:"bytes,2,opt,name=text,proto3" json:"text,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
@@ -107,8 +108,13 @@ func (m *BatchDetectLanguageRequest_Document) GetText() string {
 }
 
 type DetectedLanguage struct {
-	Name                 string   `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Iso6391Name          string   `protobuf:"bytes,2,opt,name=iso6391name,json=iso6391Name,proto3" json:"iso6391name,omitempty"`
+	// "Long name of a detected language (e.g. English, French).
+	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	// A two letter representation of the detected language according to
+	// the ISO 639-1 standard (e.g. en, fr).
+	Iso6391Name string `protobuf:"bytes,2,opt,name=iso6391name,json=iso6391Name,proto3" json:"iso6391name,omitempty"`
+	// A confidence score between 0 and 1.
+	// Scores close to 1 indicate 100% certainty that the identified language is true.
 	Score                float64  `protobuf:"fixed64,3,opt,name=score,proto3" json:"score,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -201,6 +207,7 @@ func (m *BatchDetectLanguageResponse) GetDocuments() []*BatchDetectLanguageRespo
 }
 
 type BatchDetectLanguageResponse_Document struct {
+	// Unique document identifier.
 	Id                   string              `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	DetectLanguages      []*DetectedLanguage `protobuf:"bytes,2,rep,name=detect_languages,json=detectedLanguages,proto3" json:"detect_languages,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}            `json:"-"`

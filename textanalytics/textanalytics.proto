@@ -4,6 +4,7 @@ package textanalytics;
 
 message BatchDetectLanguageRequest {
     message Document {
+        // Unique, non-empty document identifier.
         string id = 1 [json_name="id"];
         string text = 2 [json_name="text"];
     }
@@ -11,13 +12,21 @@ message BatchDetectLanguageRequest {
 }
 
 message DetectedLanguage {
+    // "Long name of a detected language (e.g. English, French).
     string name = 1 [json_name="name"];
+
+    // A two letter representation of the detected language according to
+    // the ISO 639-1 standard (e.g. en, fr).
     string iso6391name = 2 [json_name="iso6391Name"];
+
+    // A confidence score between 0 and 1.
+    // Scores close to 1 indicate 100% certainty that the identified language is true.
     double score = 3 [json_name="score"];
 }
 
 message BatchDetectLanguageResponse {
     message Document {
+        // Unique document identifier.
         string id = 1 [json_name="id"];
         repeated DetectedLanguage detect_languages = 2 [json_name="detectedLanguages"];
     }
